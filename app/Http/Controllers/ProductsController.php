@@ -13,7 +13,7 @@ class ProductsController extends Controller
     {
         $products = Product::all();
 
-        return view('products.index');
+        return view('products.index', compact('products'));
     }
 
     public function show($id)
