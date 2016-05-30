@@ -14,20 +14,21 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('manufacturer_id')->unsigned()->index();
             $table->string('article');
-            $table->string('code');
+            $table->string('code')->nullable();
             $table->string('title');
-            $table->text('description');
-            $table->string('image');
-            $table->tinyInteger('ageStart');
-            $table->tinyInteger('ageEnd');
-            $table->float('cost');
-            $table->integer('price');
-            $table->integer('priceRecommended');
-            $table->integer('weight');
-            $table->integer('width');
-            $table->integer('height');
-            $table->integer('length');
+            $table->text('description')->nullable();
+            $table->string('image')->nullable();
+            $table->tinyInteger('ageStart')->nullable();
+            $table->tinyInteger('ageEnd')->nullable();
+            $table->float('cost')->nullable();
+            $table->integer('price')->nullable();
+            $table->integer('priceRecommended')->nullable();
+            $table->integer('weight')->nullable();
+            $table->integer('width')->nullable();
+            $table->integer('height')->nullable();
+            $table->integer('length')->nullable();
             $table->timestamps();
         });
     }

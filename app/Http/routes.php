@@ -21,3 +21,5 @@ Route::get('/home', function(){
 
 Route::get('products', 'ProductsController@index');
 Route::get('products/{product}', 'ProductsController@show');
+
+Route::get('manufacturers/{mnf}', 'ManufacturerController@show');
