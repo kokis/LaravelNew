@@ -16,8 +16,7 @@ class Category extends Model
     public function children()
     {
         return $this
-                ->belongsToMany(Category::class, 'categories_relations' , 'parent_id', 'child_id')
-                ->withTimestamps();
+                ->belongsToMany(Category::class, 'categories_relations' , 'parent_id', 'child_id');
     }
 
     /**
@@ -28,10 +27,14 @@ class Category extends Model
     public function parents()
     {
         return $this
-                ->belongsToMany(Category::class, 'categories_relations' , 'child_id', 'parent_id')
-                ->withTimestamps();
+                ->belongsToMany(Category::class, 'categories_relations' , 'child_id', 'parent_id');
     }
-    
+
+    /**
+     * Товары в категории
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function products()
     {
         return $this->belongsToMany(Product::class);

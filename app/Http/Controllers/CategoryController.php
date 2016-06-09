@@ -11,18 +11,21 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        $categories = Category::all();
-        $categories = $categories->sortBy('id');
+        $catalog = Category::find(1);
+        $categories = $catalog->children->sortBy('id');
 
-        $category = Category::find(1);
-        return $category->children;
+
+        //return $categories;
 
         return view('categories.index', compact('categories'));
     }
 
     public function create()
     {
-        return view('categories.create');
+        $catalog = Category::find(1);
+        $categories = $catalog->children->sortBy('id');
+
+        return view('categories.create', compact('categories'));
     }
 
     public function store(Request $request)
@@ -30,6 +33,8 @@ class CategoryController extends Controller
         $category = new Category(['title' => $request->title]);
 
         $category->save();
+        
+        $category->parents()->attach($request->parentCategory);
 
         return back();
     }

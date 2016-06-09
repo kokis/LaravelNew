@@ -14,6 +14,15 @@
         </div>
 
         <div class="form-group">
+            <label for="title">Родительская категория</label>
+            <select name="parentCategory" id="parentCategory">
+                @foreach($categories as $category)
+                <option value="{{ $category->id }}">{{ $category->title }}</option>
+                @endforeach
+            </select>
+        </div>
+
+        <div class="form-group">
             <button type="submit" class="btn btn-primary">Создать</button>
         </div>
     </form>
