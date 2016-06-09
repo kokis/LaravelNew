@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
+    protected $fillable = ['title'];
+
     /**
      * Вложенные категории
      *
@@ -29,7 +31,7 @@ class Category extends Model
                 ->belongsToMany(Category::class, 'categories_relations' , 'child_id', 'parent_id')
                 ->withTimestamps();
     }
-
+    
     public function products()
     {
         return $this->belongsToMany(Product::class);

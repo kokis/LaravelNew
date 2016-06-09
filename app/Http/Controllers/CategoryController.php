@@ -12,6 +12,10 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::all();
+        $categories = $categories->sortBy('id');
+
+        $category = Category::find(1);
+        return $category->children;
 
         return view('categories.index', compact('categories'));
     }
@@ -23,12 +27,15 @@ class CategoryController extends Controller
 
     public function store(Request $request)
     {
-        $category = new Category();
-
-        $category->title = $request->title;
+        $category = new Category(['title' => $request->title]);
 
         $category->save();
 
         return back();
+    }
+
+    public function tree()
+    {
+        $categories = Category::all();
     }
 }
