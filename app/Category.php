@@ -26,8 +26,8 @@ class Category extends Model
     public function parents()
     {
         return $this
-            ->belongsToMany(Category::class, 'categories_relations' , 'child_id', 'parent_id')
-            ->withTimestamps();
+                ->belongsToMany(Category::class, 'categories_relations' , 'child_id', 'parent_id')
+                ->withTimestamps();
     }
 
     public function products()

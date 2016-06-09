@@ -23,3 +23,7 @@ Route::get('products', 'ProductsController@index');
 Route::get('products/{product}', 'ProductsController@show');
 
 Route::get('manufacturers/{mnf}', 'ManufacturerController@show');
+
+Route::get('categories', 'CategoryController@index');
+Route::get('categories/create', 'CategoryController@create');
+Route::post('categories', 'CategoryController@store');
