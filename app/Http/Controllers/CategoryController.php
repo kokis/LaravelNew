@@ -22,8 +22,7 @@ class CategoryController extends Controller
 
     public function create()
     {
-        $catalog = Category::find(1);
-        $categories = $catalog->children->sortBy('id');
+        $categories = Category::all();
 
         return view('categories.create', compact('categories'));
     }
@@ -39,8 +38,8 @@ class CategoryController extends Controller
         return back();
     }
 
-    public function tree()
+    public function destroy()
     {
-        $categories = Category::all();
+        
     }
 }

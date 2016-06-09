@@ -20,6 +20,8 @@ Route::get('/home', function(){
 });
 
 Route::get('products', 'ProductsController@index');
+Route::get('products/create', 'ProductsController@create');
+Route::post('products', 'ProductsController@store');
 Route::get('products/{product}', 'ProductsController@show');
 
 Route::get('manufacturers/{mnf}', 'ManufacturerController@show');
