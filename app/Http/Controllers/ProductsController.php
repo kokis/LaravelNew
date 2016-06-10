@@ -33,8 +33,6 @@ class ProductsController extends Controller
 
     public function store(Request $request)
     {
-        //return $request->all();
-
         $product = new Product([
             'title' => $request->title,
             'article' => $request->article
@@ -46,5 +44,11 @@ class ProductsController extends Controller
         $product->categories()->attach($request->category);
 
         return back();
+    }
+
+    public function destroy(Product $product)
+    {
+        $product->categories()->detach();
+        $product->delete();
     }
 }
