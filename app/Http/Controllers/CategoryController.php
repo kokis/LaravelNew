@@ -32,7 +32,7 @@ class CategoryController extends Controller
         $category = new Category(['title' => $request->title]);
 
         $category->save();
-        
+
         $category->parents()->attach($request->parentCategory);
 
         return back();

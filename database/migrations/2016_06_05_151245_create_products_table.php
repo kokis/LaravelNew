@@ -15,7 +15,6 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('manufacturer_id')->unsigned()->index();
-            $table->integer('provider_id')->unsigned()->index();
             $table->string('article');
             $table->string('code')->nullable();
             $table->string('title');
@@ -34,7 +33,6 @@ class CreateProductsTable extends Migration
 
 
             $table->foreign('manufacturer_id')->references('id')->on('manufacturers');
-            $table->foreign('provider_id')->references('id')->on('providers');
         });
     }
 
