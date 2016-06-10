@@ -16,21 +16,26 @@ class CategoryController extends Controller
 
         //return $categories;
 
-        return view('categories.index', compact('categories'));
+        return view('category.index', compact('categories'));
     }
 
     public function show(Category $category)
     {
         $products = $category->productsAll();
 
-        return view('categories.show', compact('category', 'products'));
+        return view('category.show', compact('category', 'products'));
     }
 
     public function create()
     {
         $categories = Category::all();
 
-        return view('categories.create', compact('categories'));
+        return view('category.create', compact('categories'));
+    }
+
+    public function edit()
+    {
+
     }
 
     public function store(Request $request)

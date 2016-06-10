@@ -5,6 +5,6 @@
 @section('content')
     <h1>Категории</h1>
 
-    @include('categories.tree', ['categories' => $categories])
+    @include('category.tree', ['categories' => $categories])
 
 @stop

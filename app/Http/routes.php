@@ -19,15 +19,8 @@ Route::get('/home', function(){
     return 'home';
 });
 
-Route::get('products', 'ProductsController@index');
-Route::get('products/create', 'ProductsController@create');
-Route::post('products', 'ProductsController@store');
-Route::get('products/{product}', 'ProductsController@show');
-Route::delete('products/{product}', 'ProductsController@destroy');
 
 Route::get('manufacturers/{mnf}', 'ManufacturerController@show');
 
-Route::get('categories', 'CategoryController@index');
-Route::get('categories/create', 'CategoryController@create');
-Route::post('categories', 'CategoryController@store');
-Route::get('categories/{category}', 'CategoryController@show');
+Route::resource('category', 'CategoryController');
+Route::resource('products', 'ProductsController');
