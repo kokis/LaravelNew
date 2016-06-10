@@ -32,7 +32,7 @@ class CreateProductsTable extends Migration
             $table->timestamps();
 
 
-            $table->foreign('manufacturer_id')->references('id')->on('manufacturers');
+            $table->foreign('manufacturer_id')->references('id')->on('manufacturers')->onDelete('set null');
         });
     }
 

@@ -40,10 +40,10 @@ class ProductsController extends Controller
             'article' => $request->article
         ]);
 
-        $product->save();
+        $manufacturer = Manufacturer::find($request->manufacturer);
 
-        $product->manufacturer()->associate($request->manufacturer);
-        $product->categories()->attach($request->categories);
+        $manufacturer->products()->save($product);
+        $product->categories()->attach($request->category);
 
         return back();
     }
