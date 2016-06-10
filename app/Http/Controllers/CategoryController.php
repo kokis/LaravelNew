@@ -33,7 +33,18 @@ class CategoryController extends Controller
         return view('category.create', compact('categories'));
     }
 
-    public function edit()
+    public function edit(Category $category)
+    {
+        $categories = Category::all();
+
+        $parentId = 0;
+        if ($category->parents()->count())
+            $parentId = $category->parents()->first()->id;
+
+        return view('category.edit', compact('category', 'categories', 'parentId'));
+    }
+
+    public function update(Category $category)
     {
 
     }
