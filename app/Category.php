@@ -39,4 +39,18 @@ class Category extends Model
     {
         return $this->belongsToMany(Product::class);
     }
+
+    /**
+     * Товары включая подкатегории
+     */
+    public function productsAll()
+    {
+        $products = $this->products;
+
+        foreach($this->children as $subcategories) {
+            $products = $products->merge($subcategories->productsAll());
+        }
+
+        return $products;
+    }
 }
