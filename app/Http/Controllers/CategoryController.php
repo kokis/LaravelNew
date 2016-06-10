@@ -14,10 +14,16 @@ class CategoryController extends Controller
         $catalog = Category::find(1);
         $categories = $catalog->children->sortBy('id');
 
-
         //return $categories;
 
         return view('categories.index', compact('categories'));
+    }
+
+    public function show(Category $category)
+    {
+        $products = $category->products->sortBy('id');
+
+        return view('categories.show', compact('category', 'products'));
     }
 
     public function create()

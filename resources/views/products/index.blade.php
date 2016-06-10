@@ -5,7 +5,9 @@
 @section('content')
     <h1>Здесь будут товары</h1>
 
+    <ul>
     @foreach($products as $product)
-        {{ $product->title }}
+        <li>{{ $product->title }}</li>
     @endforeach
+    </ul>
 @stop

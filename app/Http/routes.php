@@ -29,3 +29,4 @@ Route::get('manufacturers/{mnf}', 'ManufacturerController@show');
 Route::get('categories', 'CategoryController@index');
 Route::get('categories/create', 'CategoryController@create');
 Route::post('categories', 'CategoryController@store');
+Route::get('categories/{category}', 'CategoryController@show');

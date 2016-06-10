@@ -44,5 +44,7 @@ class ProductsController extends Controller
 
         $product->manufacturer()->associate($request->manufacturer);
         $product->categories()->attach($request->categories);
+
+        return back();
     }
 }
