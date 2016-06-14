@@ -8,6 +8,11 @@ class Category extends Model
 {
     protected $fillable = ['title'];
 
+    public function getRouteKeyName()
+    {
+        return 'title';
+    }
+
     /**
      * Вложенные категории
      *

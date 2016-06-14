@@ -1,6 +1,6 @@
 <ul>
     @foreach($categories as $category)
-        <li>{{ $category->title }}</li>
+        <li><a href="{{ url('category/'.$category->title) }}">{{ $category->title }}</a></li>
         @if($category->children)
             @include('category.tree', ['categories' => $category->children])
         @endif
